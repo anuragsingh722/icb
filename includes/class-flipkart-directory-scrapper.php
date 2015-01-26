@@ -9,7 +9,7 @@ class FlipkartDirectoryScrapper {
 	
 	// directory url for flipkart
 	protected $url;
-	public $scrape
+	public $scrape;
 
 	function __construct($url){
 		$this->$url = $url;
@@ -25,12 +25,19 @@ class FlipkartDirectoryScrapper {
 		curl_close($curl);
 		return $html;
 	}
+
+	// function to load DOM into a page
 	private function loadDom(){
-
+		$page = $this->curl($this->url);
+		return $page;
 	}
 
+	// function to scrape product details on directory
 	private function scrape(){
-
+		echo "<script type='text/javascript' src='" . dirname(__FILE__) . "public/js/jquery.js" .'></script>';
+		echo "<script type='text/javascript' src='" . dirname(__FILE__) . "flipkart/js/flipkart-directory-scrap.js" .'></script>';
 	}
+
+
 }
 ?>
