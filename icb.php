@@ -25,22 +25,22 @@
 			// http://www.snapdeal.com/products/automotive-helmets?sort=plrty&start=
 
 			// snapdeal bike accessory
-			// http://www.snapdeal.com/products/automotive-bike-accessories?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-bike-accessories?sort=plrty&start=
 
 			// snapdeal car audio and gps
-			// http://www.snapdeal.com/products/automotive-car-audio-video?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-car-audio-video?sort=plrty&start=
 
 			// snapdeal car accessory
-			// http://www.snapdeal.com/products/automotive-car-interior?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-car-interior?sort=plrty&start=
 
 			// snapdeal tyres and alloys
-			// http://www.snapdeal.com/products/automotive-car-wheels-tyres?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-car-wheels-tyres?sort=plrty&start=
 
 			// Snapdeal car care
-			// http://www.snapdeal.com/products/automotive-car-care?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-car-care?sort=plrty&start=
 
 			// Snapdeal Parts and Spares
-			// http://www.snapdeal.com/products/automotive-car-care?sort=plrty&
+			// http://www.snapdeal.com/products/automotive-car-care?sort=plrty&start=
 
 			$snapUrl = "http://www.snapdeal.com/products/automotive-helmets?sort=plrty&start=";
 			require dirname(__FILE__) . "/includes/class-snapdeal-directory-scrapper.php";
