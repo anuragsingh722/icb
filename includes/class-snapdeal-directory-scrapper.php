@@ -39,6 +39,9 @@ class SnapdealDirectoryScrapper {
 			$ping_url = $url.$start;
 			$page = $this->curl($ping_url);
 			$complete_page .= $page;
+			if($start>=400){
+				break;
+			}
 		}
 		echo $complete_page;
 	}

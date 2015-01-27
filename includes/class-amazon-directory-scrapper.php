@@ -3,11 +3,11 @@
 // DOC: 27/01/2015
 
 /**
-* Flipkart scrapper
+* Snapdeal scrapper
 */
-class FlipkartDirectoryScrapper {
+class AmazonlDirectoryScrapper {
 	
-	// directory url for flipkart
+	// directory url for Snapdeal
 	protected $url;
 	public $scrape;
 
@@ -35,11 +35,11 @@ class FlipkartDirectoryScrapper {
 		$ping_url = $url.$start;
 		$page = $this->curl($ping_url);
 		while($page){
-			$start+=15;
+			$start+=20;
 			$ping_url = $url.$start;
 			$page = $this->curl($ping_url);
 			$complete_page .= $page;
-			if($start>= 500){
+			if($start>=400){
 				break;
 			}
 		}
@@ -52,7 +52,7 @@ class FlipkartDirectoryScrapper {
 		"var root_url = '".ROOT_URL."';".
 		"</script>";
 		echo "<script type='text/javascript' src='" . ROOT_URL . "/public/js/jquery.js" ."'></script> \n";
-		echo "<script type='text/javascript' src='" . ROOT_URL . "/flipkart/js/flipkart-directory-scrap.js" ."'></script>";
+		echo "<script type='text/javascript' src='" . ROOT_URL . "/snapdeal/js/snapdeal-directory-scrap.js" ."'></script>";
 	}
 }
 ?>

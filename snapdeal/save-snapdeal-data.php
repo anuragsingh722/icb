@@ -17,7 +17,7 @@ function saveData($arrayToSend){
 		$prod = mysql_real_escape_string($arrayToSend[$i][3]);
 
 
-		$sel = "SELECT id, pid, price FROM icb.`flip_cat` WHERE pid ='$pid'";
+		$sel = "SELECT id, pid, price FROM icb.`snap_cat` WHERE pid ='$pid'";
 		$sql_sel = mysql_query($sel) or die(mysql_error());
 
 		if($arr_sel = mysql_fetch_array($sql_sel)){
@@ -25,13 +25,13 @@ function saveData($arrayToSend){
 			$pid_db = $arr_sel['pid'];
 			$price_db = $arr_sel['price'];
 			if($price_db != $price){
-				$up = "UPDATE icb.`flip_cat` SET price = '$price' WHERE id = '$id'";
+				$up = "UPDATE icb.`snap_cat` SET price = '$price' WHERE id = '$id'";
 				$sql_up = mysql_query($up) or die(mysql_error());
 			}
 
 		}
 		else{
-			$in = "INSERT INTO icb.`flip_cat`(pid, price, prod, image) VALUES('$pid', '$price', '$prod', '$image')";
+			$in = "INSERT INTO icb.`snap_cat`(pid, price, prod, image) VALUES('$pid', '$price', '$prod', '$image')";
 			$sql_in = mysql_query($in) or die(mysql_error());
 		}
 	}

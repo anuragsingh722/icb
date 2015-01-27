@@ -21,6 +21,9 @@
 						prod = $('.product_grid_box:eq('+ i +')').find('.product-title a:eq(0)').text().trim();
 					}
 					if($('.product_grid_box:eq('+ i +')').find('.outerImg').length > 0){
+						image = $('.product_grid_box:eq('+ i +')').find('.outerImg img:eq(0)').attr('lazysrc');
+					}
+					if(image == "" || typeof(image)=="undefined"){
 						image = $('.product_grid_box:eq('+ i +')').find('.outerImg img:eq(0)').attr('src');
 					}
 					if($('.product_grid_box:eq('+ i +')').find('a').length > 0){
@@ -88,23 +91,18 @@
 
 						else{
 							price = "";
-						}
+						} //prce ends
+				      } // if 2 ends
+				      if(PID != "" && price != ""){
+				      	arrayToSend.push([PID, price, image, prod]);
+				      	console.log(arrayToSend);
+				      }
 
-
-        //prce ends
-      } // if 2 ends
-      //console.log("pid: "+PID);
-      //console.log("price: "+price);
-      if(PID != "" && price != ""){
-      	arrayToSend.push([PID, price, image, prod]);
-      	console.log(arrayToSend);
-      }
-
-
-    } //for loop ends
-    
-  } //1st if ends
-}
+		    } //for loop ends
+		    
+		  } //1st if ends
+		  arrayToSend = JSON.stringify(arrayToSend);
+		}
 		// calling the scrap function
 		sendPairs();
 

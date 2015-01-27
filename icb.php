@@ -10,6 +10,7 @@
 		function __construct(){
 			// scraping flipkart
 			// $this->scrapFlipkart();
+
 			// scrapping snapdeal
 			$this->scrapSnapdeal();
 		}
@@ -43,8 +44,9 @@
 			// http://www.snapdeal.com/products/automotive-car-care?sort=plrty&start=
 
 			$snapUrl = "http://www.snapdeal.com/products/automotive-helmets?sort=plrty&start=";
+			$snapUrl2 = "http://www.snapdeal.com/products/automotive-bike-accessories?sort=plrty&start=";
 			require dirname(__FILE__) . "/includes/class-snapdeal-directory-scrapper.php";
-			$snapScrap = new SnapdealDirectoryScrapper($snapUrl);
+			$snapScrap = new SnapdealDirectoryScrapper($snapUrl2);
 		}
 	}
 
