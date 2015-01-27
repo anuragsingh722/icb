@@ -13,7 +13,7 @@ class FlipkartDirectoryScrapper {
 
 	function __construct($url){
 		$this->$url = $url;
-		$this->loadDom();
+		$this->loadDom($url);
 		$this->scrape();
 	}
 
@@ -29,20 +29,27 @@ class FlipkartDirectoryScrapper {
 	}
 
 	// function to load DOM into a page
-	private function loadDom(){
-		$page = $this->curl($this->url);
-		return $page;
+	private function loadDom($url){
+		$complete_page = "";
+		$start = 1;
+		$ping_url = $url.$start;
+		$page = $this->curl($ping_url);
+		while($page){
+			$start+=15;
+			$ping_url = $url.$start;
+			$page = $this->curl($ping_url);
+			$complete_page .= $page;
+		}
+		echo $complete_page;
 	}
 
 	// function to scrape product details on directory
 	private function scrape(){
-		// $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'];
-		$root = getenv('HTTP_HOST');
-		echo "<script type='text/javascript' src='" . $root . "/public/js/jquery.js" ."'></script>";
-		echo "<script type='text/javascript' src='" . $root . "/flipkart/js/flipkart-directory-scrap.js" .'></script>';
+		echo "<script type='text/javascript'>".
+		"var root_url = '".ROOT_URL."';".
+		"</script>";
+		echo "<script type='text/javascript' src='" . ROOT_URL . "/public/js/jquery.js" ."'></script> \n";
+		echo "<script type='text/javascript' src='" . ROOT_URL . "/flipkart/js/flipkart-directory-scrap.js" ."'></script>";
 	}
-
-	// 
-
 }
 ?>
